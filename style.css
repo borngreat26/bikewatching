@@ -1,0 +1,63 @@
+/* style.css */
+body {
+  font: 100%/1.5 system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80em;
+  margin: auto;
+  padding: 1em;
+}
+
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 80em;
+  margin: auto 0 1em;
+}
+
+.topbar h1 {
+  margin: 0;
+}
+
+.time-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#selected-time,
+#any-time {
+  display: block;
+  margin-bottom: 0.25em;
+}
+#any-time {
+  color: #666;
+  font-style: italic;
+}
+
+/* legend blocks */
+.legend {
+  display: flex;
+  gap: 1px;
+  margin-block: 1em;
+  width: 100%;
+  max-width: 80em;
+}
+
+.legend > div {
+  flex: 1;
+  text-align: center;
+  padding: 0.5em 1em;
+  /* reuse the same color-mix logic */
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  background: var(--color);
+  color: white;
+}

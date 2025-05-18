@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🚴🏼‍♀️ Bikewatching</title>
+
+  <!-- global styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- map styles -->
+  <link rel="stylesheet" href="map.css" />
+  <!-- Mapbox CSS -->
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+    rel="stylesheet"
+  />
 </head>
 <body>
-    
+  <header class="topbar">
+    <h1>🚴🏼‍♀️ Bikewatching</h1>
+   <label for="time-slider" class="time-filter">
+      Filter by time:
+      <time id="selected-time"></time>
+      <em id="any-time">(any time)</em>
+     <input
+        type="range"
+        id="time-slider"
+        min="-1"
+       max="1440"
+       step="1"
+        value="-1"
+     />
+    </label>
+  </header>
+
+  <p>Explore Boston &amp; Cambridge bike lanes and Bluebikes station locations.</p>
+
+  <!-- ← this must be a real div, not literal text! -->
+  <div id="map">
+    <svg></svg>
+  </div>
+
+  <!-- Step 6.2: Legend -->
+  <div class="legend">
+    <div style="--departure-ratio: 1">More departures</div>
+    <div style="--departure-ratio: 0.5">Balanced</div>
+    <div style="--departure-ratio: 0">More arrivals</div>
+  </div>
+
+  <script type="module" src="map.js"></script>
 </body>
 </html>

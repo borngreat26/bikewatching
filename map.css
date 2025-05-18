@@ -1,0 +1,54 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+}
+
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* SVG overlay for D3 station markers */
+#map svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* style each circle by our CSS variable */
+#map svg circle {
+  pointer-events: auto;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  fill: var(--color);
+  stroke: white;
+  stroke-width: 1px;
+}
+
+:root {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+}
+
